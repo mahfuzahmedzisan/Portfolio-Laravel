@@ -49,7 +49,7 @@
             <li class="nav-item">
                <a data-bs-toggle="collapse" href="#sidebarLayouts">
                   <i class="fas fa-th-list"></i>
-                  <p>{{__('Product Management')}}</p>
+                  <p>{{__('Project Management')}}</p>
                   <span class="caret"></span>
                </a>
                <div class="collapse" id="sidebarLayouts">
