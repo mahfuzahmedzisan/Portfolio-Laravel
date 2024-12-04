@@ -31,7 +31,7 @@
             <!-- Project Edit Form -->
             <form action="{{ route('projects.update', encrypt($project->id)) }}" method="POST" enctype="multipart/form-data">
                @csrf
-               @method('PUT') <!-- This indicates that we are updating the project -->
+               @method('PUT')
                <div class="row">
                   <div class="col-md-12">
                      <div class="mb-3">

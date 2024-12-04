@@ -14,7 +14,7 @@ class ProjectManagementController extends Controller
      */
     public function index(): View
     {
-        $data['projects'] = Projects::latest()->paginate(5); // Get 5 projects per page
+        $data['projects'] = Projects::latest()->paginate(10); 
         return view('backend.project_management.index', $data);
     }
 
@@ -36,8 +36,8 @@ class ProjectManagementController extends Controller
             'name' => 'required',
             'description' => 'required',
             'start_date' => 'required|date',
-            'end_date' => 'nullable|date|after_or_equal:start_date', // Ensure end_date is after start_date if provided
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Optional image validation
+            'end_date' => 'nullable|date|after_or_equal:start_date',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         // Handle file upload if there's an image
@@ -84,10 +84,7 @@ class ProjectManagementController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // Decrypt the project ID
         $id = decrypt($id);
-
-        // Find the project by ID
         $project = Projects::findOrFail($id);
 
         // Validate the incoming request
@@ -128,11 +125,9 @@ class ProjectManagementController extends Controller
      */
     public function destroy(string $encryptedId)
     {
-        // Decrypt the ID and find the project
         $id = decrypt($encryptedId);
         $project = Projects::findOrFail($id);
 
-        // Delete the project
         $project->delete();
 
         // Redirect with a success message

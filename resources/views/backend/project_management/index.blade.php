@@ -43,7 +43,6 @@
                         <th>Project Name</th>
                         <th>Description</th>
                         <th>Start Date</th>
-                        <!-- <th>End Date</th> -->
                         <th>Image</th>
                         <th>Project URL</th>
                         <th>Actions</th>
@@ -98,9 +97,12 @@
             @endif
 
             <!-- Pagination Links -->
-            <div class="d-flex justify-content-center">
+            @if ($projects->hasPages())
+            <div class="d-flex justify-content-center mt-4">
                {{ $projects->links('vendor.pagination.custom') }}
             </div>
+            @endif
+
 
 
 
