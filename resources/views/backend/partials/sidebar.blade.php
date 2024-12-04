@@ -29,7 +29,7 @@
          <ul class="nav nav-secondary">
 
             <li class="nav-item {{--{{$page_slug == 'dashboard' ? ' active' : ''	}}--}} ">
-               <a href="#">
+               <a href="{{route('backend.dashboard')}}">
                   <i class="icon-home"></i>
                   <p>{{__('Dashboard')}}</p>
                </a>
@@ -40,11 +40,32 @@
                   <p>{{__('Admin Management')}}</p>
                </a>
             </li> -->
-            <li class="nav-item">
-               <a href="#">
+            <!-- <li class="nav-item">
+               <a href="{{route('projects.index')}}">
                   <i class="fas fa-project-diagram"></i>
                   <p>{{__('Project Management')}}</p>
                </a>
+            </li> -->
+            <li class="nav-item">
+               <a data-bs-toggle="collapse" href="#sidebarLayouts">
+                  <i class="fas fa-th-list"></i>
+                  <p>{{__('Product Management')}}</p>
+                  <span class="caret"></span>
+               </a>
+               <div class="collapse" id="sidebarLayouts">
+                  <ul class="nav nav-collapse">
+                     <li>
+                        <a href="{{route('projects.index')}}">
+                           <span class="sub-item">{{__('Projets List')}}</span></span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="{{route('projects.create')}}">
+                           <span class="sub-item">{{__('Add Project')}}</span>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
             </li>
             <li class="nav-item">
                <a href="#">
