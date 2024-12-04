@@ -56,9 +56,11 @@ class ProjectManagementController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id): View
     {
-        //
+        $id = decrypt($id);
+        $data['project'] = Projects::findOrFail($id);
+        return view('backend.project_management.show', $data);
     }
 
     /**

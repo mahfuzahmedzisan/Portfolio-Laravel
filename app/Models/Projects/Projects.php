@@ -19,4 +19,6 @@ class Projects extends Model
         'project_url',
         'user_id'
     ];
+
+    
 }

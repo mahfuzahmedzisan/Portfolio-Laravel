@@ -55,7 +55,6 @@
                         <td>{{ $project->name }}</td>
                         <td>{{ $project->description }}</td>
                         <td>{{date('d M, Y', strtotime($project->start_date))}}</td>
-                        <!-- <td>{{ $project->end_date ?date('d M, Y', strtotime($project->end_date)) : 'N/A' }}</td> -->
                         <td>
                            @if($project->img_url)
                            <img src="{{ $project->img_url }}" alt="Project Image" width="100">
@@ -76,9 +75,7 @@
                                  <li>
                                     <a class="dropdown-item" href="#"
                                        onclick="event.preventDefault(); 
-                                       if (confirm('Are you sure you want to delete this project?')) {
-                                          document.getElementById('delete-form-{{ $project->id }}').submit();
-                                       }">
+                                       document.getElementById('delete-form-{{ $project->id }}').submit();">
                                        {{ __('Delete') }}
                                     </a>
                                     <form id="delete-form-{{ $project->id }}"
@@ -89,8 +86,7 @@
                                     </form>
                                  </li>
 
-
-                                 <li><a class="dropdown-item" href="{{--{{ route('projects.view', encrypt($project->id)) }}--}}">{{ __("View Details") }}</a></li>
+                                 <li><a class="dropdown-item" href="{{ route('projects.show', encrypt($project->id)) }}">{{ __("View Details") }}</a></li>
                               </ul>
                            </div>
                         </td>
